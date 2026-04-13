@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShareWeb | Digital Shopfronts</title>
+    <style>
+        :root {
+            --primary: #007bff; /* Professional Blue */
+            --dark: #1a1a1a;
+            --light: #f8f9fa;
+        }
+        body { 
+            font-family: 'Segoe UI', system-ui, sans-serif; 
+            margin: 0; background: var(--light); color: var(--dark);
+            display: flex; align-items: center; justify-content: center; height: 100vh;
+        }
+        .agency-card {
+            background: white; padding: 40px; border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-left: 10px solid var(--primary);
+            max-width: 450px; width: 90%; text-align: left;
+        }
+        h1 { margin: 0; font-size: 28px; color: var(--dark); }
+        .tagline { color: var(--primary); font-weight: bold; margin-bottom: 20px; text-transform: uppercase; font-size: 14px; }
+        ul { padding: 0; list-style: none; margin: 20px 0; }
+        li { margin-bottom: 10px; font-size: 16px; }
+        .btn { 
+            background: var(--dark); color: white; padding: 15px 25px; 
+            text-decoration: none; border-radius: 8px; display: block; 
+            text-align: center; font-weight: bold; transition: 0.3s;
+        }
+        .btn:hover { background: var(--primary); }
+    </style>
+</head>
+<body>
+
+<div class="agency-card">
+    <div class="tagline">Local Australia Digital Partner</div>
+    <h1 id="agency-name">SHAREWEB</h1>
+    <p id="agency-pitch">We build lightning-fast digital shopfronts for local tradespeople.</p>
+    
+    <ul id="features-list">
+        </ul>
+
+    <a href="#" id="contact-link" class="btn">GET A FREE DEMO</a>
+</div>
+
+<script>
+    const myAgency = {
+        name: "SHAREWEB",
+        pitch: "High-converting websites for tradies. <br>Built for speed. Zero monthly hosting fees.",
+        benefits: [
+            "⚡ 24-Hour Deployment",
+            "📱 Mobile-First Design",
+            "💬 WhatsApp Lead Integration",
+            "🚀 $0 Monthly Overhead"
+        ],
+        phone: "61497031125", // Change to your number
+        msg: "Hi ShareWeb! I'm a tradie and I want to see a demo of your website-in-a-box."
+    };
+
+    // Injection Logic
+    document.getElementById('agency-name').innerText = myAgency.name;
+    document.getElementById('agency-pitch').innerHTML = myAgency.pitch;
+    
+    // Inject Benefits
+    const list = document.getElementById('features-list');
+    myAgency.benefits.forEach(item => {
+        let li = document.createElement('li');
+        li.innerText = item;
+        list.appendChild(li);
+    });
+
+    // WhatsApp Link
+    const waUrl = `https://wa.me/${myAgency.phone}?text=${encodeURIComponent(myAgency.msg)}`;
+    document.getElementById('contact-link').href = waUrl;
+</script>
+
+</body>
+</html>
