@@ -3,170 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShareWeb | Digital Shopfronts & AI Automation</title>
+    <title>ShareWeb | Professional Tradie Branding</title>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root {
             --primary: #007bff;
-            --dark: #121212;
+            --dark: #0f172a;
             --light: #f8fafc;
-            --white: #ffffff;
-            --text-muted: #64748b;
+            --accent: #e0f2fe;
         }
 
         body { 
-            font-family: 'Inter', -apple-system, system-ui, sans-serif; 
-            margin: 0; background-color: var(--light); color: var(--dark);
-            display: flex; flex-direction: column; align-items: center;
-            min-height: 100vh; padding: 40px 20px;
+            font-family: 'Inter', sans-serif; margin: 0; 
+            background: var(--light); color: var(--dark); 
+            line-height: 1.5;
         }
 
-        /* Trusted By Banner */
-        .trust-badge {
-            font-size: 11px; font-weight: 700; text-transform: uppercase;
-            letter-spacing: 1.5px; color: var(--text-muted); margin-bottom: 20px;
-            display: flex; align-items: center; gap: 8px;
+        /* 1. HERO SECTION */
+        .hero {
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--accent) 0%, var(--light) 100%);
         }
 
-        .agency-card {
-            background: var(--white); padding: 40px; border-radius: 24px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.06);
-            border-top: 10px solid var(--primary);
-            max-width: 480px; width: 100%; box-sizing: border-box;
-            margin-bottom: 24px;
+        .usp-badge {
+            background: var(--white);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--primary);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            display: inline-block;
+            margin-bottom: 20px;
         }
 
-        .tagline { 
-            color: var(--primary); font-weight: 800; margin-bottom: 12px; 
-            text-transform: uppercase; font-size: 12px; letter-spacing: 1px;
+        h1 { font-size: 42px; letter-spacing: -2px; line-height: 1.1; margin-bottom: 20px; }
+        .hero p { max-width: 600px; margin: 0 auto 30px; font-size: 18px; color: #475569; }
+
+        /* 2. THE CTA */
+        .btn {
+            background: var(--primary); color: white;
+            padding: 18px 35px; border-radius: 12px;
+            text-decoration: none; font-weight: 700;
+            display: inline-block; transition: 0.3s;
+            box-shadow: 0 10px 25px rgba(0, 123, 255, 0.3);
         }
+        .btn:hover { transform: translateY(-3px); background: #0056b3; }
 
-        h1 { margin: 0; font-size: 36px; letter-spacing: -1.5px; line-height: 1; }
-
-        .pitch { 
-            color: #475569; font-size: 17px; line-height: 1.6; 
-            margin: 20px 0 30px 0; 
+        /* 3. SOCIAL PROOF BANNER */
+        .social-proof {
+            background: white; border-y: 1px solid #e2e8f0;
+            padding: 20px; display: flex; justify-content: center;
+            gap: 40px; flex-wrap: wrap; opacity: 0.7;
         }
+        .proof-item { font-size: 12px; font-weight: 800; display: flex; align-items: center; gap: 8px; }
 
-        ul { padding: 0; list-style: none; margin-bottom: 35px; }
-        li { 
-            margin-bottom: 14px; font-size: 15px; display: flex; 
-            align-items: center; font-weight: 500; color: #334155;
+        /* 4. BENEFITS GRID */
+        .section { padding: 60px 20px; max-width: 1000px; margin: 0 auto; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        
+        .card {
+            background: white; padding: 30px; border-radius: 20px;
+            border: 1px solid #e2e8f0; transition: 0.3s;
         }
-        .check-icon { color: var(--primary); margin-right: 12px; width: 18px; height: 18px; }
+        .card:hover { border-color: var(--primary); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .card i { color: var(--primary); margin-bottom: 15px; }
+        .card h3 { margin: 10px 0; font-size: 20px; }
 
-        .btn { 
-            background: var(--dark); color: var(--white); padding: 20px; 
-            text-decoration: none; border-radius: 14px; display: block; 
-            text-align: center; font-weight: 700; transition: 0.3s ease;
-            font-size: 16px;
-        }
-        .btn:hover { background: var(--primary); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,123,255,0.2); }
-
-        .portfolio-link {
-            display: block; text-align: center; margin-top: 20px;
-            color: var(--primary); font-weight: 700; text-decoration: none;
-            font-size: 14px; transition: 0.2s;
-        }
-        .portfolio-link:hover { text-decoration: underline; }
-
-        /* Service Grid */
-        .service-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
-            max-width: 480px; width: 100%;
-        }
-
-        .service-item {
-            background: var(--white); padding: 20px; border-radius: 18px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03); border: 1px solid #e2e8f0;
-        }
-
-        .service-item i { color: var(--primary); margin-bottom: 12px; }
-        .service-item h3 { margin: 12px 0 6px 0; font-size: 14px; font-weight: 800; }
-        .service-item p { margin: 0; font-size: 12px; color: var(--text-muted); line-height: 1.5; }
-
-        footer { margin-top: 50px; text-align: center; }
-        footer p { font-size: 11px; color: #94a3b8; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        footer { text-align: center; padding: 40px; font-size: 13px; color: #94a3b8; }
     </style>
 </head>
 <body>
 
-    <div class="trust-badge">
-        <i data-lucide="map-pin" size="14"></i> Serving Local Australia
-    </div>
-
-    <div class="agency-card">
-        <div class="tagline">Scale Your Trade Business</div>
-        <h1 id="agency-name">SHAREWEB</h1>
-        <p id="agency-pitch" class="pitch"></p>
+    <section class="hero">
+        <div class="usp-badge">100% OWNERSHIP • $0 MONTHLY RENT</div>
+        <h1>The Professional Brand Your Trade Deserves.</h1>
+        <p>Stop sending quotes from @gmail. We build high-speed shopfronts and professional email setups for Aussie tradies who are ready to scale.</p>
         
-        <ul id="features-list"></ul>
-
-        <a href="#" id="contact-link" class="btn">GET MY FREE TRADIE DEMO</a>
+        <a href="#" id="wa-btn" class="btn">CLAIM YOUR FREE AUDIT</a>
         
-        <a href="https://shareweb-dev.github.io/tradie-template/" class="portfolio-link" target="_blank">
-            View Live Tradie Template →
-        </a>
+        <div style="margin-top: 25px;">
+            <a href="https://shareweb-dev.github.io/tradie-template/" target="_blank" style="color: var(--primary); font-size: 14px; font-weight: 600; text-decoration: none;">
+                View Live Tradie Demo →
+            </a>
+        </div>
+    </section>
+
+    <div class="social-proof">
+        <div class="proof-item"><i data-lucide="shield-check" size="16"></i> NO ONGOING FEES</div>
+        <div class="proof-item"><i data-lucide="map-pin" size="16"></i> LOCAL AUSTRALIA</div>
+        <div class="proof-item"><i data-lucide="zap" size="16"></i> GOOGLE CLOUD TECH</div>
     </div>
 
-    <div class="service-grid">
-        <div class="service-item">
-            <i data-lucide="bot"></i>
-            <h3>AI Agents</h3>
-            <p>WhatsApp booking bots that work 24/7.</p>
+    <section class="section">
+        <div class="grid">
+            <div class="card">
+                <i data-lucide="mail"></i>
+                <h3>Pro Business Email</h3>
+                <p>Move away from @gmail. Get a custom address that matches your domain name.</p>
+            </div>
+            <div class="card">
+                <i data-lucide="smartphone"></i>
+                <h3>Mobile Shopfront</h3>
+                <p>Built for the dashboard. Your site loads in under 1 second on any job site.</p>
+            </div>
+            <div class="card">
+                <i data-lucide="trending-up"></i>
+                <h3>Local Map Ranking</h3>
+                <p>We optimize your Google Business Profile to put you at the top of your suburb.</p>
+            </div>
         </div>
-        <div class="service-item">
-            <i data-lucide="search"></i>
-            <h3>Local SEO</h3>
-            <p>Dominate Google Maps in your suburb.</p>
-        </div>
-        <div class="service-item">
-            <i data-lucide="zap"></i>
-            <h3>Performance</h3>
-            <p>Lightning fast sites built to convert leads.</p>
-        </div>
-        <div class="service-item">
-            <i data-lucide="life-buoy"></i>
-            <h3>Concierge</h3>
-            <p>On-call support. You build, we manage.</p>
-        </div>
-    </div>
+    </section>
 
     <footer>
-        <p>&copy; 2026 ShareWeb Design | Australia</p>
+        <p>&copy; 2026 SHAREWEB AGENCY | SYDNEY • MELBOURNE • BRISBANE</p>
     </footer>
 
     <script>
-        // --- CONFIGURATION OBJECT ---
-        const myAgency = {
-            name: "SHAREWEB",
-            pitch: "Stop losing local jobs to competitors with better websites. We build lightning-fast digital shopfronts for Aussie tradies with <strong>$0 monthly hosting fees</strong> and automated WhatsApp booking.",
-            benefits: [
-                "24-Hour Rapid Deployment",
-                "Mobile-First Lead Generation",
-                "AI-Powered Booking Systems",
-                "No Lock-in Contracts"
-            ],
-            phone: "61497031125", // <-- UPDATE THIS TO YOUR NUMBER
-            msg: "Hi ShareWeb! I'm interested in a free demo for my trade business."
-        };
-
-        // --- ENGINE ---
-        document.getElementById('agency-name').innerText = myAgency.name;
-        document.getElementById('agency-pitch').innerHTML = myAgency.pitch;
-        
-        const list = document.getElementById('features-list');
-        myAgency.benefits.forEach(item => {
-            let li = document.createElement('li');
-            li.innerHTML = `<i data-lucide="check-circle-2" class="check-icon"></i> ${item}`;
-            list.appendChild(li);
-        });
-
-        const waUrl = `https://wa.me/${myAgency.phone}?text=${encodeURIComponent(myAgency.msg)}`;
-        document.getElementById('contact-link').href = waUrl;
-
-        // Initialize Lucide Icons
+        // Initialize Icons
         lucide.createIcons();
+
+        // WhatsApp Link
+        const phone = "61497031125"; // UPDATE THIS
+        const msg = "Hi ShareWeb! I'd like a free digital audit for my trade business.";
+        document.getElementById('wa-btn').href = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
     </script>
 </body>
 </html>
